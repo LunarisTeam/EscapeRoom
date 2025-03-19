@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import RealityKitContent
 
 @main
 struct EscapeRoomApp: App {
 
     @State private var appModel = AppModel()
+    
+    init() {
+        RealityKitContent.ObjComponent.registerComponent()
+    }
 
     var body: some Scene {
         WindowGroup {
