@@ -15,6 +15,14 @@
     "objectMetadataList" : [
       [
         "0AB725E6-3D73-44B3-BF06-46D44FE9145E",
+        "root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "0AB725E6-3D73-44B3-BF06-46D44FE9145E",
         "root",
         "buttonRight"
       ],
@@ -30,28 +38,11 @@
       {
         "isExpanded" : true,
         "isLocked" : false
-      },
-      [
-        "0AB725E6-3D73-44B3-BF06-46D44FE9145E",
-        "root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
       }
     ]
   },
   "1D572CEB-057A-41C3-B575-04C37501A3C0" : {
     "objectMetadataList" : [
-      [
-        "1D572CEB-057A-41C3-B575-04C37501A3C0",
-        "Root",
-        "Sphere_Left"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
       [
         "1D572CEB-057A-41C3-B575-04C37501A3C0",
         "Root"
@@ -68,6 +59,15 @@
       {
         "isExpanded" : true,
         "isLocked" : false
+      },
+      [
+        "1D572CEB-057A-41C3-B575-04C37501A3C0",
+        "Root",
+        "Sphere_Left"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
       }
     ]
   },
@@ -76,7 +76,24 @@
       [
         "54D2C70C-14F7-4C5C-AC50-77AB57FC4A5D",
         "root",
+        "tubocatodico"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "54D2C70C-14F7-4C5C-AC50-77AB57FC4A5D",
+        "root",
         "buttonLeft"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "54D2C70C-14F7-4C5C-AC50-77AB57FC4A5D",
+        "root"
       ],
       {
         "isExpanded" : true,
@@ -95,23 +112,6 @@
         "54D2C70C-14F7-4C5C-AC50-77AB57FC4A5D",
         "root",
         "buttonRight"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "54D2C70C-14F7-4C5C-AC50-77AB57FC4A5D",
-        "root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "54D2C70C-14F7-4C5C-AC50-77AB57FC4A5D",
-        "root",
-        "tubocatodico"
       ],
       {
         "isExpanded" : true,
@@ -153,7 +153,9 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
-        "Sphere"
+        "offFile",
+        "computer",
+        "buttonCenter"
       ],
       {
         "isExpanded" : true,
@@ -172,9 +174,8 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
-        "computer",
-        "Cube",
-        "Material"
+        "ButtonLeftPRess",
+        "Track"
       ],
       {
         "isExpanded" : true,
@@ -183,34 +184,7 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
-        "ButtonRightPRess"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root",
-        "ButtonLeftPRess"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root",
-        "computer",
-        "_materials"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root"
+        "Sphere"
       ],
       {
         "isExpanded" : true,
@@ -228,17 +202,7 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
-        "computer",
-        "buttonCenter"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root",
-        "offFile"
+        "ButtonLeftPRess"
       ],
       {
         "isExpanded" : true,
@@ -248,26 +212,6 @@
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
         "ButtonRightPRess",
-        "Track"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root",
-        "computer",
-        "buttonRight"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
-        "Root",
-        "ButtonLeftPRess",
         "Track"
       ],
       {
@@ -287,6 +231,75 @@
       [
         "D66134B1-3681-4A8E-AFE5-29F257229F3B",
         "Root",
+        "offFile"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "offFile",
+        "_materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "computer",
+        "Cube",
+        "Material"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "offFile",
+        "computer"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "offFile",
+        "computer",
+        "buttonRight"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "ButtonRightPRess"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D66134B1-3681-4A8E-AFE5-29F257229F3B",
+        "Root",
+        "offFile",
         "computer",
         "buttonLeft"
       ],

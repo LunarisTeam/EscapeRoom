@@ -17,8 +17,7 @@ struct EscapeRoomApp: App {
             ContentView()
                 .environment(appModel)
         }
-        .windowStyle(.volumetric)
-        
+        .defaultSize(width: 20, height: 10, depth: 0, in: .centimeters)
         ImmersiveSpace(id: appModel.immersiveSpaceID) {
             ImmersiveView()
                 .environment(appModel)

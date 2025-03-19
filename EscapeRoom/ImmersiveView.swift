@@ -48,6 +48,7 @@ struct ImmersiveView: View {
             guard let texture = self.stateManager.myTexture,
                   let schermoModel = self.stateManager.schermoModel else { return }
             
+            print("after guard")
             if(appModel.switchScreen){
                 print("inside if")
                 var material = SimpleMaterial()
@@ -74,8 +75,12 @@ struct ImmersiveView: View {
                 .onEnded {
                     $0.entity.applyTapForBehaviors()
                     if($0.entity.name == "Cylinder_002"){
-                        
+                        print("wowowowowo")
+                        print(appModel.switchScreen)
+
                         appModel.switchScreen.toggle()
+                        print(appModel.switchScreen)
+
                     }
                 })
     }

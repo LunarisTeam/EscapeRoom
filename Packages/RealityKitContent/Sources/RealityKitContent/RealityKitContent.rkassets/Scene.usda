@@ -22,7 +22,7 @@ def Xform "Root"
         references = @offFile.usdc@
     )
     {
-        reorder nameChildren = ["computer", "Corkboard_Corkboard_0", "_materials", "Potted_Plant_Aglaonema_Leaf_0", "Trash_Cam_Mesh_Basket_0", "Plane", "Plane_001", "Plane_002", "Plane_003", "Box02_Cube_226", "Cactus_Cylinder_014", "Table_Plane_001", "Point", "Cube", "PaperStack_005_Cube_001", "PaperStack_005_Cube_002", "PaperStack_005_Cube_003", "PaperStack_005_Cube_004", "PaperStack_005_Cube_005", "Shelf01_Cube_001", "File06_Cube_001", "File06_Cube_002", "File06_Cube_003", "File06_Cube_004", "PaperStack_005_Cube_006", "Plane_004", "PrinterNew", "Mug_Cylinder_013_Cylinder_007_001", "PrinterNew_003", "PrinterNew_004", "PrinterNew_005", "Paper03_Cube_001", "Photo_Cube_148_Cube_012_001", "Paper03_Cube_002", "PaperStack_005_Cube_007", "Plane_006", "Plane_007", "Plane_008"]
+        reorder nameChildren = ["Corkboard_Corkboard_0", "_materials", "Potted_Plant_Aglaonema_Leaf_0", "Trash_Cam_Mesh_Basket_0", "Plane", "Plane_001", "Plane_002", "Plane_003", "Box02_Cube_226", "Cactus_Cylinder_014", "Table_Plane_001", "Point", "Cube", "PaperStack_005_Cube_001", "PaperStack_005_Cube_002", "PaperStack_005_Cube_003", "PaperStack_005_Cube_004", "PaperStack_005_Cube_005", "Shelf01_Cube_001", "File06_Cube_001", "File06_Cube_002", "File06_Cube_003", "File06_Cube_004", "PaperStack_005_Cube_006", "Plane_004", "PrinterNew", "Mug_Cylinder_013_Cylinder_007_001", "PrinterNew_003", "PrinterNew_004", "PrinterNew_005", "Paper03_Cube_001", "Photo_Cube_148_Cube_012_001", "Paper03_Cube_002", "PaperStack_005_Cube_007", "Plane_006", "Plane_007", "Plane_008"]
         quatf xformOp:orient = (0.6226798, -0.6226799, 0.33506674, 0.3350667)
         float3 xformOp:scale = (0.1, 0.1, 0.1)
         float3 xformOp:translate = (0, 8.791685e-7, -0.5)
@@ -1103,7 +1103,6 @@ def Xform "Root"
         }
 
         def "computer" (
-            active = false
             customData = {
                 float3 rotationEulerHint = (-1.5707964, 0.117869265, 0)
             }
@@ -1159,6 +1158,36 @@ def Xform "Root"
                     float3 xformOp:scale = (1, 1, 1)
                     float3 xformOp:translate = (0, 0, 0)
                     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                    def RealityKitComponent "RCP_BehaviorsContainer"
+                    {
+                        rel behaviors = </Root/offFile/computer/buttonCenter/Cylinder_002/OnTap>
+                        uniform token info:id = "RCP.BehaviorsContainer"
+                    }
+
+                    def Preliminary_Behavior "OnTap"
+                    {
+                        rel actions = </Root/offFile/computer/buttonCenter/Cylinder_002/OnTap/Action>
+                        uniform bool exclusive
+                        rel triggers = </Root/offFile/computer/buttonCenter/Cylinder_002/OnTap/Trigger>
+
+                        def Preliminary_Trigger "Trigger"
+                        {
+                            rel affectedObjects = </Root/offFile/computer/buttonCenter/Cylinder_002>
+                            token info:id = "TapGesture"
+                        }
+
+                        def Preliminary_Action "Action"
+                        {
+                            rel affectedObjects = </Root>
+                            rel animationLibraryKey = </Root/ButtonCenterPRess>
+                            rel animationLibraryKeyOverrideKey = </Root/offFile/computer/buttonCenter/Cylinder_002/OnTap/Trigger>
+                            token info:id = "PlayTimeline"
+                            int loops = 0
+                            int performCount = 1
+                            token type = "serial"
+                        }
+                    }
                 }
             }
 
@@ -1183,6 +1212,36 @@ def Xform "Root"
                     float3 xformOp:scale = (1, 1, 1)
                     float3 xformOp:translate = (0, 0, 0)
                     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                    def RealityKitComponent "RCP_BehaviorsContainer"
+                    {
+                        rel behaviors = </Root/offFile/computer/buttonLeft/Cylinder_003/OnTap>
+                        uniform token info:id = "RCP.BehaviorsContainer"
+                    }
+
+                    def Preliminary_Behavior "OnTap"
+                    {
+                        rel actions = </Root/offFile/computer/buttonLeft/Cylinder_003/OnTap/Action>
+                        uniform bool exclusive
+                        rel triggers = </Root/offFile/computer/buttonLeft/Cylinder_003/OnTap/Trigger>
+
+                        def Preliminary_Trigger "Trigger"
+                        {
+                            rel affectedObjects = </Root/offFile/computer/buttonLeft/Cylinder_003>
+                            token info:id = "TapGesture"
+                        }
+
+                        def Preliminary_Action "Action"
+                        {
+                            rel affectedObjects = </Root>
+                            rel animationLibraryKey = </Root/ButtonLeftPRess>
+                            rel animationLibraryKeyOverrideKey = </Root/offFile/computer/buttonLeft/Cylinder_003/OnTap/Trigger>
+                            token info:id = "PlayTimeline"
+                            int loops = 0
+                            int performCount = 1
+                            token type = "serial"
+                        }
+                    }
                 }
             }
 
@@ -1206,6 +1265,36 @@ def Xform "Root"
                     quatf xformOp:orient = (1, 0, 0, 0)
                     float3 xformOp:scale = (1, 1, 1)
                     float3 xformOp:translate = (0, 0, 0)
+
+                    def RealityKitComponent "RCP_BehaviorsContainer"
+                    {
+                        rel behaviors = </Root/offFile/computer/buttonRight/Cylinder_005/OnTap>
+                        uniform token info:id = "RCP.BehaviorsContainer"
+                    }
+
+                    def Preliminary_Behavior "OnTap"
+                    {
+                        rel actions = </Root/offFile/computer/buttonRight/Cylinder_005/OnTap/Action>
+                        uniform bool exclusive
+                        rel triggers = </Root/offFile/computer/buttonRight/Cylinder_005/OnTap/Trigger>
+
+                        def Preliminary_Trigger "Trigger"
+                        {
+                            rel affectedObjects = </Root/offFile/computer/buttonRight/Cylinder_005>
+                            token info:id = "TapGesture"
+                        }
+
+                        def Preliminary_Action "Action"
+                        {
+                            rel affectedObjects = </Root>
+                            rel animationLibraryKey = </Root/ButtonRightPRess>
+                            rel animationLibraryKeyOverrideKey = </Root/offFile/computer/buttonRight/Cylinder_005/OnTap/Trigger>
+                            token info:id = "PlayTimeline"
+                            int loops = 0
+                            int performCount = 1
+                            token type = "serial"
+                        }
+                    }
                 }
             }
 
@@ -1243,6 +1332,18 @@ def Xform "Root"
                 float3 xformOp:scale = (1.333202, 1.333202, 0.23485452)
                 float3 xformOp:translate = (0, -0.06227708, 0.16238135)
                 uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            over "_materials"
+            {
+                over "buttonRight"
+                {
+                    token cullMode = "front" (
+                        allowedTokens = ["unspecified", "none", "front", "back"]
+                    )
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                }
             }
         }
     }
@@ -1410,262 +1511,6 @@ def Xform "Root"
         }
     }
 
-    def "computer_old" (
-        active = false
-        customData = {
-            float3 rotationEulerHint = (-1.5051774, 0.24433072, -1.535728e-7)
-        }
-        references = @computer.usdc@
-    )
-    {
-        reorder nameChildren = ["Cylinder_005", "_materials", "Cylinder_001", "schermo", "Schermo", "Circle", "tubocatodico", "Cylinder"]
-        quatf xformOp:orient = (0.7244819, -0.6784363, 0.08894958, 0.08329615)
-        float3 xformOp:scale = (0.21536113, 0.21536112, 0.21536109)
-        float3 xformOp:translate = (-0.08127003, 0.9973899, -2.2633111)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-        over "schermo" (
-            active = false
-        )
-        {
-        }
-
-        over "tubocatodico"
-        {
-            over "Cube" (
-                prepend apiSchemas = ["MaterialBindingAPI"]
-                customData = {
-                    float3 rotationEulerHint = (0, 0, 0)
-                }
-            )
-            {
-                rel material:binding = </Root/computer/_materials/Material> (
-                    bindMaterialAs = "weakerThanDescendants"
-                )
-                quatf xformOp:orient = (1, 0, 0, 0)
-                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-            }
-        }
-
-        def Cube "Schermo" (
-            active = true
-            prepend apiSchemas = ["MaterialBindingAPI"]
-            customData = {
-                float3 rotationEulerHint = (1.5079279, 0.0049483436, 0.010788661)
-            }
-        )
-        {
-            rel material:binding = </Root/computer/Schermo/Material> (
-                bindMaterialAs = "weakerThanDescendants"
-            )
-            double size = 0.2
-            quatf xformOp:orient = (0.72897744, 0.68451196, 0.005496169, 0.0022387065)
-            float3 xformOp:scale = (8.2544985, 8.254497, 3.6657333e-16)
-            float3 xformOp:translate = (-0.01404381, -0.88978684, 1.6380436)
-            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-            def Material "Material"
-            {
-                token outputs:mtlx:surface.connect = </Root/computer/Schermo/Material/PreviewSurface.outputs:out>
-                token outputs:realitykit:vertex
-                float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (335.25, 100.5)
-
-                def Shader "PreviewSurface"
-                {
-                    uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
-                    color3f inputs:diffuseColor.connect = </Root/computer/Schermo/Material/Image.outputs:out>
-                    float inputs:metallic
-                    float inputs:roughness
-                    token outputs:out
-                    float2 ui:nodegraph:node:pos = (93.5, 100.5)
-                }
-
-                def Shader "Image"
-                {
-                    uniform token info:id = "ND_image_color3"
-                    asset inputs:file = @Screens/Captcha Onb.png@
-                    color3f outputs:out
-                    float2 ui:nodegraph:node:pos = (-170.86328, 69.88281)
-                    int ui:nodegraph:node:stackingOrder = 2
-                }
-            }
-        }
-
-        over "Cylinder_005"
-        {
-            reorder nameChildren = ["Cylinder_004", "Cylinder_003", "Cylinder_6", "Cylinder_002"]
-            over "Cylinder_004"
-            {
-                reorder nameChildren = ["Cylinder_005", "ButtonLeft", "ButtonCenter"]
-                float3 xformOp:translate = (0, 0, 0)
-                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-                over "Cylinder_005" (
-                    customData = {
-                        dictionary RE = {
-                            dictionary mesh = {
-                                dictionary v1 = {
-                                    bool reorderVertexCaching = 0
-                                }
-                            }
-                        }
-                        float3 rotationEulerHint = (-4.424803e-10, -1.1840072e-10, 0.058713317)
-                    }
-                )
-                {
-                    uniform token subdivisionScheme = "none"
-                    quatf xformOp:orient = (0.9995691, -2.1940715e-10, -6.566879e-11, 0.029352441)
-                    float3 xformOp:translate = (0.34990573, -1.4202385, 1.8439007)
-                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-                    def RealityKitComponent "InputTarget"
-                    {
-                        uniform token info:id = "RealityKit.InputTarget"
-                    }
-
-                    def RealityKitComponent "Collider"
-                    {
-                        uint group = 1
-                        uniform token info:id = "RealityKit.Collider"
-                        uint mask = 4294967295
-                        token type = "Default"
-
-                        def RealityKitStruct "Shape"
-                        {
-                            float3 extent = (0.16759464, 0.2930636, 0.58582985)
-                            token shapeType = "Box"
-
-                            def RealityKitStruct "pose"
-                            {
-                                float3 position = (-0.0022549778, -0.0005466789, -0.12492651)
-                            }
-                        }
-                    }
-                }
-            }
-
-            over "Cylinder_003"
-            {
-                quatf xformOp:orient = (1, 0, 0, 0)
-                float3 xformOp:scale = (0.9999999, 0.9999999, 1)
-                float3 xformOp:translate = (-0.35070133, -1.4397769, 1.0216656)
-                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-                over "Cylinder_003"
-                {
-                    float3 xformOp:translate = (0.000003218651, 0.000012397767, 0.7608147)
-                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-                    def RealityKitComponent "InputTarget"
-                    {
-                        uniform token info:id = "RealityKit.InputTarget"
-                    }
-
-                    def RealityKitComponent "Collider"
-                    {
-                        uint group = 1
-                        uniform token info:id = "RealityKit.Collider"
-                        uint mask = 4294967295
-                        token type = "Default"
-
-                        def RealityKitStruct "Shape"
-                        {
-                            float3 extent = (0.16674715, 0.2914561, 0.58074754)
-                            token shapeType = "Box"
-
-                            def RealityKitStruct "pose"
-                            {
-                                float3 position = (-0.0024176538, -0.0004554391, -0.12746713)
-                            }
-                        }
-                    }
-                }
-            }
-
-            over "Cylinder_002"
-            {
-                quatf xformOp:orient = (1, 0, 0, 0)
-                float3 xformOp:scale = (0.9999999, 0.9999999, 1)
-                float3 xformOp:translate = (0.0018676519, -1.4691973, 1.7087421)
-                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-                over "Cylinder_002"
-                {
-                    float3 xformOp:translate = (0.000019073488, 0.00009298325, 0.27243808)
-                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-                    def RealityKitComponent "InputTarget"
-                    {
-                        uniform token info:id = "RealityKit.InputTarget"
-                    }
-
-                    def RealityKitComponent "Collider"
-                    {
-                        uint group = 1
-                        uniform token info:id = "RealityKit.Collider"
-                        uint mask = 4294967295
-                        token type = "Default"
-
-                        def RealityKitStruct "Shape"
-                        {
-                            float3 extent = (0.16758263, 0.27396262, 0.5762304)
-                            token shapeType = "Box"
-
-                            def RealityKitStruct "pose"
-                            {
-                                float3 position = (-0.00007554144, 0.002408564, -0.12588352)
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        over "Cylinder_001" (
-            active = false
-        )
-        {
-            quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (1.333202, 1.333202, 0.23485452)
-            float3 xformOp:translate = (0.000041723255, 0.41280657, 0.1624179)
-            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-            over "Cylinder_001"
-            {
-                float3 xformOp:translate = (0.000004529953, -4.026885, 15.754238)
-                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-            }
-        }
-
-        over "Circle"
-        {
-            over "Circle"
-            {
-                float3 xformOp:translate = (0, 0, 0)
-                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
-
-                def RealityKitComponent "Collider"
-                {
-                    uint group = 1
-                    uniform token info:id = "RealityKit.Collider"
-                    uint mask = 4294967295
-                    token type = "Default"
-
-                    def RealityKitStruct "Shape"
-                    {
-                        float3 extent = (1.976659, 1.9775722, 0.4998941)
-                        token shapeType = "Box"
-
-                        def RealityKitStruct "pose"
-                        {
-                            float3 position = (0.0004515648, 0.006706476, 0.24994706)
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     def RealityKitTimeline "ButtonLeftPRess"
     {
         reorder nameChildren = ["Track", "Track2"]
@@ -1679,7 +1524,7 @@ def Xform "Root"
                 uniform token info:id = "CAE87FEB-F021-44D5-B570-0C0054BF1602"
                 float3 position = (0, 0, -0.08)
                 double startTime = 0
-                rel target = </Root/computer/buttonLeft/Cylinder_003>
+                rel target = </Root/offFile/computer/buttonLeft/Cylinder_003>
 
                 def RealityKitStruct "timingFunction"
                 {
@@ -1694,7 +1539,7 @@ def Xform "Root"
                 uniform token info:id = "CAE87FEB-F021-44D5-B570-0C0054BF1602"
                 float3 position = (0, 0, 0.08)
                 double startTime = 0.38663421849407753
-                rel target = </Root/computer/buttonLeft/Cylinder_003>
+                rel target = </Root/offFile/computer/buttonLeft/Cylinder_003>
                 float2 ui:nodegraph:node:pos = (28.75, 114.5)
                 int ui:nodegraph:node:stackingOrder = 1
 
@@ -1722,7 +1567,7 @@ def Xform "Root"
                 uniform token info:id = "CAE87FEB-F021-44D5-B570-0C0054BF1602"
                 float3 position = (0, 0, -0.08)
                 double startTime = 0
-                rel target = </Root/computer/buttonCenter/Cylinder_002>
+                rel target = </Root/offFile/computer/buttonCenter/Cylinder_002>
 
                 def RealityKitStruct "timingFunction"
                 {
@@ -1737,7 +1582,7 @@ def Xform "Root"
                 uniform token info:id = "CAE87FEB-F021-44D5-B570-0C0054BF1602"
                 float3 position = (0, 0, 0.08)
                 double startTime = 0.34903989901799554
-                rel target = </Root/computer/buttonCenter/Cylinder_002>
+                rel target = </Root/offFile/computer/buttonCenter/Cylinder_002>
                 float2 ui:nodegraph:node:pos = (28.75, 114.5)
                 int ui:nodegraph:node:stackingOrder = 1
 
@@ -1764,7 +1609,7 @@ def Xform "Root"
                 uniform token info:id = "CAE87FEB-F021-44D5-B570-0C0054BF1602"
                 float3 position = (0, 0, -0.08)
                 double startTime = 0
-                rel target = </Root/computer/buttonRight/Cylinder_005>
+                rel target = </Root/offFile/computer/buttonRight/Cylinder_005>
 
                 def RealityKitStruct "timingFunction"
                 {
@@ -1779,7 +1624,7 @@ def Xform "Root"
                 uniform token info:id = "CAE87FEB-F021-44D5-B570-0C0054BF1602"
                 float3 position = (0, 0, 0.08)
                 double startTime = 0.350396853744647
-                rel target = </Root/computer/buttonRight/Cylinder_005>
+                rel target = </Root/offFile/computer/buttonRight/Cylinder_005>
                 float2 ui:nodegraph:node:pos = (28.75, 114.5)
                 int ui:nodegraph:node:stackingOrder = 1
 
@@ -1791,7 +1636,7 @@ def Xform "Root"
     }
 
     def "computer" (
-        active = true
+        active = false
         customData = {
             float3 rotationEulerHint = (-1.5707964, 0.117869265, 0)
         }
