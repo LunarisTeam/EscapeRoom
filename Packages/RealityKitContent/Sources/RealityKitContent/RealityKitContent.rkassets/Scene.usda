@@ -11,6 +11,9 @@
 def Xform "Root"
 {
     reorder nameChildren = ["offFile", "SkyDome", "DirectionalLight", "computer_old", "ButtonLeftPRess", "ButtonCenterPRess", "ButtonRightPRess", "computer"]
+    float3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
     def "offFile" (
         active = true
         customData = {
@@ -19,9 +22,10 @@ def Xform "Root"
         references = @offFile.usdc@
     )
     {
+        reorder nameChildren = ["computer", "Corkboard_Corkboard_0", "_materials", "Potted_Plant_Aglaonema_Leaf_0", "Trash_Cam_Mesh_Basket_0", "Plane", "Plane_001", "Plane_002", "Plane_003", "Box02_Cube_226", "Cactus_Cylinder_014", "Table_Plane_001", "Point", "Cube", "PaperStack_005_Cube_001", "PaperStack_005_Cube_002", "PaperStack_005_Cube_003", "PaperStack_005_Cube_004", "PaperStack_005_Cube_005", "Shelf01_Cube_001", "File06_Cube_001", "File06_Cube_002", "File06_Cube_003", "File06_Cube_004", "PaperStack_005_Cube_006", "Plane_004", "PrinterNew", "Mug_Cylinder_013_Cylinder_007_001", "PrinterNew_003", "PrinterNew_004", "PrinterNew_005", "Paper03_Cube_001", "Photo_Cube_148_Cube_012_001", "Paper03_Cube_002", "PaperStack_005_Cube_007", "Plane_006", "Plane_007", "Plane_008"]
         quatf xformOp:orient = (0.6226798, -0.6226799, 0.33506674, 0.3350667)
         float3 xformOp:scale = (0.1, 0.1, 0.1)
-        float3 xformOp:translate = (0.22182235, 8.791685e-7, -1.1534891)
+        float3 xformOp:translate = (0, 8.791685e-7, -0.5)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
         over "Cube"
@@ -1097,6 +1101,150 @@ def Xform "Root"
                 }
             }
         }
+
+        def "computer" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (-1.5707964, 0.117869265, 0)
+            }
+            references = @computerFinal.usdc@
+        )
+        {
+            quatf xformOp:orient = (0.90698385, 4.863824e-8, 2.35078e-9, -0.4211654)
+            float3 xformOp:scale = (2.942638, 2.9426382, 2.942638)
+            float3 xformOp:translate = (9.552146, 8.993935, 9.672113)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            over "Schermo" (
+                customData = {
+                    float3 rotationEulerHint = (1.4835297, 0, -1.863527e-9)
+                }
+            )
+            {
+                quatf xformOp:orient = (0.7372774, 0.67559016, -6.2949035e-10, -6.8696815e-10)
+                float3 xformOp:scale = (8.034168, 8.034166, 3.5678857e-16)
+                float3 xformOp:translate = (0.016604908, -0.9070928, 1.5931412)
+            }
+
+            over "Circle" (
+                customData = {
+                    float3 rotationEulerHint = (1.5094277, 0, 0)
+                }
+            )
+            {
+                quatf xformOp:orient = (0.72846764, 0.68508023, 4.816973e-18, -4.816967e-18)
+                float3 xformOp:scale = (0.10189524, 0.10189525, 0.10189525)
+                float3 xformOp:translate = (-0.002245903, -1.1190333, 0.7072506)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            over "buttonCenter" (
+                customData = {
+                    float3 rotationEulerHint = (0, 0, 0)
+                }
+            )
+            {
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                over "Cylinder_002" (
+                    customData = {
+                        float3 rotationEulerHint = (0, 0, 0)
+                    }
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    float3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                }
+            }
+
+            over "buttonLeft" (
+                customData = {
+                    float3 rotationEulerHint = (0, 0, 0)
+                }
+            )
+            {
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                over "Cylinder_003" (
+                    customData = {
+                        float3 rotationEulerHint = (0, 0, 0)
+                    }
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    float3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                }
+            }
+
+            over "buttonRight" (
+                customData = {
+                    float3 rotationEulerHint = (0, 0, 0)
+                }
+            )
+            {
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                over "Cylinder_005" (
+                    customData = {
+                        float3 rotationEulerHint = (0, 0, 0)
+                    }
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    float3 xformOp:translate = (0, 0, 0)
+                }
+            }
+
+            over "Keyboard" (
+                customData = {
+                    float3 rotationEulerHint = (0, 0, 0)
+                }
+            )
+            {
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1.333202, 1.333202, 0.23485452)
+                float3 xformOp:translate = (0, -0.06227708, 0.16238135)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            over "tubocatodico" (
+                customData = {
+                    float3 rotationEulerHint = (-0.05709081, 0, 0)
+                }
+            )
+            {
+                quatf xformOp:orient = (0.9995926, -0.02854153, -6.3374927e-18, -4.9133866e-25)
+                float3 xformOp:scale = (1.0590608, 1.0281707, 0.9614626)
+                float3 xformOp:translate = (-3.8475486e-17, 0.086639084, 1.4687234)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            over "base_floppy" (
+                customData = {
+                    float3 rotationEulerHint = (0, 0, 1.2941048)
+                }
+            )
+            {
+                quatf xformOp:orient = (0.7978642, 0, 0, 0.60283726)
+                float3 xformOp:scale = (1.333202, 1.333202, 0.23485452)
+                float3 xformOp:translate = (0, -0.06227708, 0.16238135)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+        }
     }
 
     def "SkyDome" (
@@ -1245,6 +1393,7 @@ def Xform "Root"
     )
     {
         quatf xformOp:orient = (0.81675285, -0.5524873, 0.09209199, -0.13853426)
+        float3 xformOp:scale = (1, 1, 1)
         float3 xformOp:translate = (0.95846033, 4.2509527, 1.4040523)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
@@ -1638,20 +1787,6 @@ def Xform "Root"
                 }
             }
         }
-    }
-
-    def "computer" (
-        active = true
-        customData = {
-            float3 rotationEulerHint = (-1.5707964, 0.117869265, 0)
-        }
-        references = @computerFinal.usdc@
-    )
-    {
-        quatf xformOp:orient = (0.7058791, -0.7058791, 0.041648954, 0.041648954)
-        float3 xformOp:scale = (0.29426384, 0.29426384, 0.29426384)
-        float3 xformOp:translate = (-0.0025253594, 0.9672121, -2.4461656)
-        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 }
 

@@ -18,7 +18,7 @@ struct EscapeRoomApp: App {
                 .environment(appModel)
         }
         .windowStyle(.volumetric)
-
+        
         ImmersiveSpace(id: appModel.immersiveSpaceID) {
             ImmersiveView()
                 .environment(appModel)
