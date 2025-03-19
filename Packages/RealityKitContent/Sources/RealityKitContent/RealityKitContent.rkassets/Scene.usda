@@ -1103,7 +1103,7 @@ def Xform "Root"
         }
 
         def "computer" (
-            active = true
+            active = false
             customData = {
                 float3 rotationEulerHint = (-1.5707964, 0.117869265, 0)
             }
@@ -1675,11 +1675,11 @@ def Xform "Root"
             {
                 string actionKind = "moveBy"
                 int blendLayer = 300
-                double duration = 0.5022868023917996
+                double duration = 0.3866342183940775
                 uniform token info:id = "CAE87FEB-F021-44D5-B570-0C0054BF1602"
-                float3 position = (0, 0, -0.34436)
+                float3 position = (0, 0, -0.08)
                 double startTime = 0
-                rel target = </Root/computer_old/Cylinder_005/Cylinder_003/Cylinder_003>
+                rel target = </Root/computer/buttonLeft/Cylinder_003>
 
                 def RealityKitStruct "timingFunction"
                 {
@@ -1692,9 +1692,9 @@ def Xform "Root"
                 int blendLayer = 300
                 double duration = 0.5022868023917996
                 uniform token info:id = "CAE87FEB-F021-44D5-B570-0C0054BF1602"
-                float3 position = (0, 0, 0.34436)
-                double startTime = 0.5022868024917996
-                rel target = </Root/computer_old/Cylinder_005/Cylinder_003/Cylinder_003>
+                float3 position = (0, 0, 0.08)
+                double startTime = 0.38663421849407753
+                rel target = </Root/computer/buttonLeft/Cylinder_003>
                 float2 ui:nodegraph:node:pos = (28.75, 114.5)
                 int ui:nodegraph:node:stackingOrder = 1
 
@@ -1713,15 +1713,16 @@ def Xform "Root"
 
         def RealityKitTrack "Track"
         {
+            reorder nameChildren = ["Transform_By", "Transform_By2"]
             def RealityKitAction "Transform_By"
             {
                 string actionKind = "moveBy"
                 int blendLayer = 300
-                double duration = 0.5022868023917996
+                double duration = 0.34903989891799553
                 uniform token info:id = "CAE87FEB-F021-44D5-B570-0C0054BF1602"
-                float3 position = (0, 0, -0.34436)
+                float3 position = (0, 0, -0.08)
                 double startTime = 0
-                rel target = </Root/computer_old/Cylinder_005/Cylinder_002/Cylinder_002>
+                rel target = </Root/computer/buttonCenter/Cylinder_002>
 
                 def RealityKitStruct "timingFunction"
                 {
@@ -1734,9 +1735,9 @@ def Xform "Root"
                 int blendLayer = 300
                 double duration = 0.5022868023917996
                 uniform token info:id = "CAE87FEB-F021-44D5-B570-0C0054BF1602"
-                float3 position = (0, 0, 0.34436)
-                double startTime = 0.5022868024917996
-                rel target = </Root/computer_old/Cylinder_005/Cylinder_002/Cylinder_002>
+                float3 position = (0, 0, 0.08)
+                double startTime = 0.34903989901799554
+                rel target = </Root/computer/buttonCenter/Cylinder_002>
                 float2 ui:nodegraph:node:pos = (28.75, 114.5)
                 int ui:nodegraph:node:stackingOrder = 1
 
@@ -1759,11 +1760,11 @@ def Xform "Root"
             {
                 string actionKind = "moveBy"
                 int blendLayer = 300
-                double duration = 0.5022868023917996
+                double duration = 0.350396853644647
                 uniform token info:id = "CAE87FEB-F021-44D5-B570-0C0054BF1602"
-                float3 position = (0, 0, -0.34436)
+                float3 position = (0, 0, -0.08)
                 double startTime = 0
-                rel target = </Root/computer_old/Cylinder_005/Cylinder_004/Cylinder_005>
+                rel target = </Root/computer/buttonRight/Cylinder_005>
 
                 def RealityKitStruct "timingFunction"
                 {
@@ -1776,15 +1777,151 @@ def Xform "Root"
                 int blendLayer = 300
                 double duration = 0.5022868023917996
                 uniform token info:id = "CAE87FEB-F021-44D5-B570-0C0054BF1602"
-                float3 position = (0, 0, 0.34436)
-                double startTime = 0.5022868024917996
-                rel target = </Root/computer_old/Cylinder_005/Cylinder_004/Cylinder_005>
+                float3 position = (0, 0, 0.08)
+                double startTime = 0.350396853744647
+                rel target = </Root/computer/buttonRight/Cylinder_005>
                 float2 ui:nodegraph:node:pos = (28.75, 114.5)
                 int ui:nodegraph:node:stackingOrder = 1
 
                 def RealityKitStruct "timingFunction"
                 {
                 }
+            }
+        }
+    }
+
+    def "computer" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (-1.5707964, 0.117869265, 0)
+        }
+        references = @computerFinal.usdc@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (0.7058791, -0.7058791, 0.041648954, 0.041648954)
+        float3 xformOp:scale = (0.29426384, 0.29426384, 0.29426384)
+        float3 xformOp:translate = (-0.22262597, 0.96721435, -1.8236555)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "buttonCenter"
+        {
+            over "Cylinder_002"
+            {
+                def RealityKitComponent "RCP_BehaviorsContainer"
+                {
+                    rel behaviors = </Root/computer/buttonCenter/Cylinder_002/OnTap>
+                    uniform token info:id = "RCP.BehaviorsContainer"
+                }
+
+                def Preliminary_Behavior "OnTap"
+                {
+                    rel actions = </Root/computer/buttonCenter/Cylinder_002/OnTap/Action>
+                    uniform bool exclusive
+                    rel triggers = </Root/computer/buttonCenter/Cylinder_002/OnTap/Trigger>
+
+                    def Preliminary_Trigger "Trigger"
+                    {
+                        rel affectedObjects = </Root/computer/buttonCenter/Cylinder_002>
+                        token info:id = "TapGesture"
+                    }
+
+                    def Preliminary_Action "Action"
+                    {
+                        rel affectedObjects = </Root>
+                        rel animationLibraryKey = </Root/ButtonCenterPRess>
+                        rel animationLibraryKeyOverrideKey = </Root/computer/buttonCenter/Cylinder_002/OnTap/Trigger>
+                        token info:id = "PlayTimeline"
+                        int loops = 0
+                        int performCount = 1
+                        token type = "serial"
+                    }
+                }
+            }
+        }
+
+        over "buttonLeft"
+        {
+            over "Cylinder_003"
+            {
+                def RealityKitComponent "RCP_BehaviorsContainer"
+                {
+                    rel behaviors = </Root/computer/buttonLeft/Cylinder_003/OnTap>
+                    uniform token info:id = "RCP.BehaviorsContainer"
+                }
+
+                def Preliminary_Behavior "OnTap"
+                {
+                    rel actions = </Root/computer/buttonLeft/Cylinder_003/OnTap/Action>
+                    uniform bool exclusive
+                    rel triggers = </Root/computer/buttonLeft/Cylinder_003/OnTap/Trigger>
+
+                    def Preliminary_Trigger "Trigger"
+                    {
+                        rel affectedObjects = </Root/computer/buttonLeft/Cylinder_003>
+                        token info:id = "TapGesture"
+                    }
+
+                    def Preliminary_Action "Action"
+                    {
+                        rel affectedObjects = </Root>
+                        rel animationLibraryKey = </Root/ButtonLeftPRess>
+                        rel animationLibraryKeyOverrideKey = </Root/computer/buttonLeft/Cylinder_003/OnTap/Trigger>
+                        token info:id = "PlayTimeline"
+                        int loops = 0
+                        int performCount = 1
+                        token type = "serial"
+                    }
+                }
+            }
+        }
+
+        over "buttonRight"
+        {
+            over "Cylinder_005"
+            {
+                def RealityKitComponent "RCP_BehaviorsContainer"
+                {
+                    rel behaviors = </Root/computer/buttonRight/Cylinder_005/OnTap>
+                    uniform token info:id = "RCP.BehaviorsContainer"
+                }
+
+                def Preliminary_Behavior "OnTap"
+                {
+                    rel actions = </Root/computer/buttonRight/Cylinder_005/OnTap/Action>
+                    uniform bool exclusive
+                    rel triggers = </Root/computer/buttonRight/Cylinder_005/OnTap/Trigger>
+
+                    def Preliminary_Trigger "Trigger"
+                    {
+                        rel affectedObjects = </Root/computer/buttonRight/Cylinder_005>
+                        token info:id = "TapGesture"
+                    }
+
+                    def Preliminary_Action "Action"
+                    {
+                        rel affectedObjects = </Root>
+                        rel animationLibraryKey = </Root/ButtonRightPRess>
+                        rel animationLibraryKeyOverrideKey = </Root/computer/buttonRight/Cylinder_005/OnTap/Trigger>
+                        token info:id = "PlayTimeline"
+                        int loops = 0
+                        int performCount = 1
+                        token type = "serial"
+                    }
+                }
+            }
+        }
+
+        over "_materials"
+        {
+            over "buttonRight"
+            {
+                token cullMode = "front" (
+                    allowedTokens = ["unspecified", "none", "front", "back"]
+                )
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
             }
         }
     }
