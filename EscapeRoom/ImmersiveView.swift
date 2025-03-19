@@ -8,6 +8,7 @@
 import SwiftUI
 import RealityKit
 import RealityKitContent
+import Combine
 
 struct ImmersiveView: View {
     
@@ -19,6 +20,7 @@ struct ImmersiveView: View {
     }
     
     @Environment(AppModel.self) private var appModel
+    @State var session: SpatialTrackingSession?
     
     @State private var stateManager = StateManager()
     
@@ -40,6 +42,26 @@ struct ImmersiveView: View {
                     print("my texture: \(self.stateManager.myTexture)")
                 }
                 
+            }
+            
+            let session = SpatialTrackingSession()
+            let configuration = SpatialTrackingSession.Configuration(tracking: [.hand])
+            _ = await session.run(configuration)
+            self.session = session
+            
+            
+            //Setup an anchor at the user's right palm.
+            let handAnchor = AnchorEntity(.hand(.left, location: .palm), trackingMode: .continuous)
+            
+            //Add the Gauntlet scene that was set up in Reality Composer Pro.
+            if let bookEntity = try? await Entity(named: "booknoteFinal", in: realityKitContentBundle) {
+                
+                
+                //Child the gauntlet scene to the handAnchor
+                handAnchor.addChild(bookEntity)
+                
+                // Add the handAnchor to the RealityView scene.
+                content.add(handAnchor)
             }
             
             
@@ -68,19 +90,23 @@ struct ImmersiveView: View {
             }
             
             
-        }.gesture(
+        }.installGestures()
+        
+        //.upperLimbVisibility(.hidden)
+        
+        .gesture(
             SpatialTapGesture()
-//                .targetedToAnyEntity()
+            //                .targetedToAnyEntity()
                 .targetedToEntity(where: .has(InputTargetComponent.self))
                 .onEnded {
                     $0.entity.applyTapForBehaviors()
                     if($0.entity.name == "Cylinder_002"){
                         print("wowowowowo")
                         print(appModel.switchScreen)
-
+                        
                         appModel.switchScreen.toggle()
                         print(appModel.switchScreen)
-
+                        
                     }
                 })
     }
