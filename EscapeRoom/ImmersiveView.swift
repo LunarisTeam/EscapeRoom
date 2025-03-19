@@ -31,14 +31,14 @@ struct ImmersiveView: View {
                 self.stateManager.schermoModel = schermo
                 content.add(immersiveContentEntity)
                 
-//                print("found schermo")
-//                if let texture = try? TextureResource.load(named: "Captcha1") {
-//                    print("found image")
-//                    print("texture found: \(texture)")
-//                    
-//                    self.stateManager.myTexture = texture
-//                    print("my texture: \(self.stateManager.myTexture)")
-//                }
+                print("found schermo")
+                if let texture = try? TextureResource.load(named: "Captcha1") {
+                    print("found image")
+                    print("texture found: \(texture)")
+                    
+                    self.stateManager.myTexture = texture
+                    print("my texture: \(self.stateManager.myTexture)")
+                }
                 
             }
             
@@ -48,6 +48,7 @@ struct ImmersiveView: View {
             guard let texture = self.stateManager.myTexture,
                   let schermoModel = self.stateManager.schermoModel else { return }
             
+            print("after guard")
             if(appModel.switchScreen){
                 print("inside if")
                 var material = SimpleMaterial()
@@ -74,8 +75,12 @@ struct ImmersiveView: View {
                 .onEnded {
                     $0.entity.applyTapForBehaviors()
                     if($0.entity.name == "Cylinder_002"){
-                        
+                        print("wowowowowo")
+                        print(appModel.switchScreen)
+
                         appModel.switchScreen.toggle()
+                        print(appModel.switchScreen)
+
                     }
                 })
     }
