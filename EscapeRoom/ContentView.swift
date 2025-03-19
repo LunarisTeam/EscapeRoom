@@ -31,12 +31,12 @@ struct ContentView: View {
         .toolbar {
             ToolbarItemGroup(placement: .bottomOrnament) {
                 VStack (spacing: 12) {
-                    Button {
-                        appModel.switchScreen.toggle()
-                        print("switchScreen: \(appModel.switchScreen)")
-                    } label: {
-                        Text("Change screen")
-                    }
+//                    Button {
+//                        appModel.switchScreen.toggle()
+//                        print("switchScreen: \(appModel.switchScreen)")
+//                    } label: {
+//                        Text("Change screen")
+//                    }
                     ToggleImmersiveSpaceButton()
                 }
             }
