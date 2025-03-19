@@ -10,7 +10,7 @@ import SwiftUI
 struct ToggleImmersiveSpaceButton: View {
 
     @Environment(AppModel.self) private var appModel
-
+    
     @Environment(\.dismissImmersiveSpace) private var dismissImmersiveSpace
     @Environment(\.openImmersiveSpace) private var openImmersiveSpace
 
@@ -49,6 +49,9 @@ struct ToggleImmersiveSpaceButton: View {
                 }
             }
         } label: {
+            Image(systemName: "gearshape.fill")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
             Text(appModel.immersiveSpaceState == .open ? "Hide Immersive Space" : "Show Immersive Space")
         }
         .disabled(appModel.immersiveSpaceState == .inTransition)
