@@ -66,8 +66,18 @@ struct ImmersiveView: View {
                 }
             }
             
-          
-        }
+            
+        }.gesture(
+            SpatialTapGesture()
+//                .targetedToAnyEntity()
+                .targetedToEntity(where: .has(InputTargetComponent.self))
+                .onEnded {
+                    $0.entity.applyTapForBehaviors()
+                    if($0.entity.name == "Cylinder_002"){
+                        
+                        appModel.switchScreen.toggle()
+                    }
+                })
     }
     
 }
