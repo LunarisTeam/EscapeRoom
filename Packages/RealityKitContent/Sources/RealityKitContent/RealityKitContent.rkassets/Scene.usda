@@ -25,7 +25,7 @@ def Xform "Root"
         reorder nameChildren = ["computer", "Corkboard_Corkboard_0", "_materials", "Potted_Plant_Aglaonema_Leaf_0", "Trash_Cam_Mesh_Basket_0", "Plane", "Plane_001", "Plane_002", "Plane_003", "Box02_Cube_226", "Cactus_Cylinder_014", "Table_Plane_001", "Point", "Cube", "PaperStack_005_Cube_001", "PaperStack_005_Cube_002", "PaperStack_005_Cube_003", "PaperStack_005_Cube_004", "PaperStack_005_Cube_005", "Shelf01_Cube_001", "File06_Cube_001", "File06_Cube_002", "File06_Cube_003", "File06_Cube_004", "PaperStack_005_Cube_006", "Plane_004", "PrinterNew", "Mug_Cylinder_013_Cylinder_007_001", "PrinterNew_003", "PrinterNew_004", "PrinterNew_005", "Paper03_Cube_001", "Photo_Cube_148_Cube_012_001", "Paper03_Cube_002", "PaperStack_005_Cube_007", "Plane_006", "Plane_007", "Plane_008"]
         quatf xformOp:orient = (0.6226798, -0.6226799, 0.33506674, 0.3350667)
         float3 xformOp:scale = (0.1, 0.1, 0.1)
-        float3 xformOp:translate = (0, 8.791685e-7, -0.5)
+        float3 xformOp:translate = (0, 8.791685e-7, -0.7)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
         over "Cube"

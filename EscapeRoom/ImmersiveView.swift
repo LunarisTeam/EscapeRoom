@@ -31,14 +31,14 @@ struct ImmersiveView: View {
                 self.stateManager.schermoModel = schermo
                 content.add(immersiveContentEntity)
                 
-                print("found schermo")
-                if let texture = try? TextureResource.load(named: "Captcha1") {
-                    print("found image")
-                    print("texture found: \(texture)")
-                    
-                    self.stateManager.myTexture = texture
-                    print("my texture: \(self.stateManager.myTexture)")
-                }
+//                print("found schermo")
+//                if let texture = try? TextureResource.load(named: "Captcha1") {
+//                    print("found image")
+//                    print("texture found: \(texture)")
+//                    
+//                    self.stateManager.myTexture = texture
+//                    print("my texture: \(self.stateManager.myTexture)")
+//                }
                 
             }
             
