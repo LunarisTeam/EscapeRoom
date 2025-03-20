@@ -18,5 +18,7 @@ class AppModel {
         case open
     }
     var immersiveSpaceState = ImmersiveSpaceState.closed
-    var switchScreen: Bool = false
+    var translation: SIMD3<Float> = .init(0, 0, 0)
+    var rotation: simd_quatf = .init(angle: .zero, axis: .init(x: 0, y: 0, z: 0))
+    var bookAnchor: Bool = true
 }
