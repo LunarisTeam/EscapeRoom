@@ -22,9 +22,9 @@ def Xform "Root"
         references = @offFile.usdc@
     )
     {
-        reorder nameChildren = ["Corkboard_Corkboard_0", "_materials", "Potted_Plant_Aglaonema_Leaf_0", "Trash_Cam_Mesh_Basket_0", "Plane", "Plane_001", "Plane_002", "Plane_003", "Box02_Cube_226", "Cactus_Cylinder_014", "Table_Plane_001", "Point", "Cube", "PaperStack_005_Cube_001", "PaperStack_005_Cube_002", "PaperStack_005_Cube_003", "PaperStack_005_Cube_004", "PaperStack_005_Cube_005", "Shelf01_Cube_001", "File06_Cube_001", "File06_Cube_002", "File06_Cube_003", "File06_Cube_004", "PaperStack_005_Cube_006", "Plane_004", "PrinterNew", "Mug_Cylinder_013_Cylinder_007_001", "PrinterNew_003", "PrinterNew_004", "PrinterNew_005", "Paper03_Cube_001", "Photo_Cube_148_Cube_012_001", "Paper03_Cube_002", "PaperStack_005_Cube_007", "Plane_006", "Plane_007", "Plane_008"]
+        reorder nameChildren = ["Corkboard_Corkboard_0", "_materials", "Potted_Plant_Aglaonema_Leaf_0", "Trash_Cam_Mesh_Basket_0", "Plane", "Plane_001", "Plane_002", "Plane_003", "Box02_Cube_226", "Cactus_Cylinder_014", "Table_Plane_001", "Point", "Cube", "PaperStack_005_Cube_001", "PaperStack_005_Cube_002", "PaperStack_005_Cube_003", "PaperStack_005_Cube_004", "PaperStack_005_Cube_005", "Shelf01_Cube_001", "File06_Cube_001", "File06_Cube_002", "File06_Cube_003", "File06_Cube_004", "PaperStack_005_Cube_006", "Plane_004", "PrinterNew", "Mug_Cylinder_013_Cylinder_007_001", "PrinterNew_003", "PrinterNew_004", "PrinterNew_005", "Paper03_Cube_001", "Photo_Cube_148_Cube_012_001", "Paper03_Cube_002", "PaperStack_005_Cube_007", "Plane_006", "Plane_007", "Plane_008", "computer", "Mug"]
         quatf xformOp:orient = (0.6226798, -0.6226799, 0.33506674, 0.3350667)
-        float3 xformOp:scale = (0.1, 0.1, 0.1)
+        float3 xformOp:scale = (0.065, 0.065, 0.065)
         float3 xformOp:translate = (0, 8.791685e-7, -0.5)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
@@ -1188,6 +1188,14 @@ def Xform "Root"
                             token type = "serial"
                         }
                     }
+
+                    over "Collider"
+                    {
+                        over "Shape"
+                        {
+                            float3 extent = (0.2, 0.35, 0.12)
+                        }
+                    }
                 }
             }
 
@@ -1240,6 +1248,14 @@ def Xform "Root"
                             int loops = 0
                             int performCount = 1
                             token type = "serial"
+                        }
+                    }
+
+                    over "Collider"
+                    {
+                        over "Shape"
+                        {
+                            float3 extent = (0.2, 0.35, 0.12)
                         }
                     }
                 }
@@ -1295,6 +1311,14 @@ def Xform "Root"
                             token type = "serial"
                         }
                     }
+
+                    over "Collider"
+                    {
+                        over "Shape"
+                        {
+                            float3 extent = (0.2, 0.35, 0.12)
+                        }
+                    }
                 }
             }
 
@@ -1343,6 +1367,62 @@ def Xform "Root"
                     )
                     token outputs:mtlx:surface
                     token outputs:realitykit:vertex
+                }
+            }
+        }
+
+        over "Mug_Cylinder_013_Cylinder_007_001"
+        {
+            quatf xformOp:orient = (0.6119637, 0.6119637, -0.3542604, -0.35426044)
+            float3 xformOp:scale = (2.448609, 2.448609, 2.448609)
+            float3 xformOp:translate = (7.01888, -1.7664351, 9.4040165)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            over "Mug_Cylinder_013_Cylinder_007_001"
+            {
+                def RealityKitComponent "InputTarget" (
+                    active = false
+                )
+                {
+                    uniform token info:id = "RealityKit.InputTarget"
+                }
+
+                def RealityKitCustomComponent "RealityKitContent_ObjComponent" (
+                    active = false
+                )
+                {
+                    uniform token info:id = "RealityKitContent.ObjComponent"
+                }
+            }
+
+            def RealityKitComponent "InputTarget"
+            {
+                bool allowsDirectInput = 0
+                bool allowsIndirectInput = 1
+                uniform token info:id = "RealityKit.InputTarget"
+            }
+
+            def RealityKitCustomComponent "RealityKitContent_ObjComponent"
+            {
+                uniform token info:id = "RealityKitContent.ObjComponent"
+            }
+
+            def RealityKitComponent "Collider"
+            {
+                uint group = 1
+                uniform token info:id = "RealityKit.Collider"
+                uint mask = 4294967295
+                token type = "Default"
+
+                def RealityKitStruct "Shape"
+                {
+                    float3 extent = (0.56693983, 0.735157, 0.78165305)
+                    token shapeType = "Box"
+
+                    def RealityKitStruct "pose"
+                    {
+                        float3 position = (-0.017090082, 0.35869408, -0.10205299)
+                    }
                 }
             }
         }
