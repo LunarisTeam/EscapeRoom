@@ -13,6 +13,7 @@ struct EscapeRoomApp: App {
 
     @State private var appModel = AppModel()
     
+    
     init() {
         RealityKitContent.ObjComponent.registerComponent()
     }
@@ -23,6 +24,7 @@ struct EscapeRoomApp: App {
                 .environment(appModel)
         }
         .defaultSize(width: 20, height: 10, depth: 0, in: .centimeters)
+        
         ImmersiveSpace(id: appModel.immersiveSpaceID) {
             ImmersiveView()
                 .environment(appModel)
@@ -33,6 +35,6 @@ struct EscapeRoomApp: App {
                     appModel.immersiveSpaceState = .closed
                 }
         }
-        .immersionStyle(selection: .constant(.progressive), in: .progressive)
+        .immersionStyle(selection: .constant(.full), in: .full)
     }
 }

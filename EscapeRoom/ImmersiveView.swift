@@ -48,12 +48,12 @@ struct ImmersiveView: View {
             self.session = session
             
             
+            
             //Setup an anchor at the user's right palm.
             stateManager.handAnchor = AnchorEntity(.hand(.left, location: .palm), trackingMode: .continuous)
             
             //Add the Gauntlet scene that was set up in Reality Composer Pro.
             if let bookEntity = try? await Entity(named: "booknoteFinal", in: realityKitContentBundle) {
-                
                 stateManager.bookModel = bookEntity
                 
                 
@@ -100,6 +100,46 @@ struct ImmersiveView: View {
                             color: .yellow, strength: 2.0
                         )
                     )))
+                }
+//                // Set rotation to face the user like a normal book
+//                bookEntity.transform.rotation *= simd_quatf(angle: .pi, axis: [1, 0, 0])
+//                bookEntity.transform.rotation *= simd_quatf(angle: 0, axis: [0, 1, 0])
+//                bookEntity.transform.rotation *= simd_quatf(angle: -.pi, axis: [0, 0, 1])
+//
+                // Reset rotation first (identity quaternion)
+                // Reset rotation first (identity quaternion)
+                if let bookEntity = stateManager.bookModel {
+                    bookEntity.transform.rotation = simd_quatf(angle: 0, axis: [1, 0, 0])
+                    
+                    // Rotate 90° around X so the book stands upright relative to the palm
+                    bookEntity.transform.rotation *= simd_quatf(angle: .pi / 2, axis: [1, 0, 0])
+                    
+                    // Flip 180° around Y so the cover faces the palm (instead of the pages)
+                    bookEntity.transform.rotation *= simd_quatf(angle: .pi, axis: [0, 1, 0])
+                    
+                    // Move it slightly forward so it's not inside the palm
+                    bookEntity.position = SIMD3(0, 0, -0.1)// Move forward in the local Z direction
+                    
+                    // Add only to the right hand (adjust if necessary)
+                    stateManager.handAnchor!.addChild(bookEntity)
+                    
+                    
+                    // Add to scene
+                    content.add(stateManager.handAnchor!)
+                    
+                    let xAxis = ModelEntity(mesh: .generateBox(size: [0.15, 0.002, 0.002]), materials: [SimpleMaterial(color: .red, isMetallic: false)])
+                    xAxis.position = SIMD3(0.15, 0, 0) // Extend along X
+                    bookEntity.addChild(xAxis)
+                    
+                    // Create Y-axis (Green)
+                    let yAxis = ModelEntity(mesh: .generateBox(size: [0.002, 0.15, 0.002]), materials: [SimpleMaterial(color: .green, isMetallic: false)])
+                    yAxis.position = SIMD3(0, 0.15, 0) // Extend along Y
+                    bookEntity.addChild(yAxis)
+                    
+                    // Create Z-axis (Blue)
+                    let zAxis = ModelEntity(mesh: .generateBox(size: [0.002, 0.002, 0.15]), materials: [SimpleMaterial(color: .blue, isMetallic: false)])
+                    zAxis.position = SIMD3(0, 0, 0.15) // Extend along Z
+                    bookEntity.addChild(zAxis)
                 }
             }
             
@@ -173,8 +213,10 @@ struct ImmersiveView: View {
             
             
             
-        }.installGestures()
-        
+        }
+        .installGestures()
+        .persistentSystemOverlays(.hidden)
+
         //.upperLimbVisibility(.hidden)
         
             .gesture(
@@ -184,9 +226,9 @@ struct ImmersiveView: View {
                         $0.entity.applyTapForBehaviors()
                         if($0.entity.name == "Cylinder_002" && stateManager.loadedTexture == nil){
                             // print("started captchas")
-//                            print(stateManager.startCaptchas)
+                            //                            print(stateManager.startCaptchas)
                             stateManager.startCaptchas = true
-//                            print(stateManager.startCaptchas)
+                            //                            print(stateManager.startCaptchas)
                         }
                         
                         if(stateManager.loadedTexture != nil){
@@ -195,7 +237,7 @@ struct ImmersiveView: View {
                     })
     }
     
-    
+        
     
     
     
@@ -241,5 +283,6 @@ struct ImmersiveView: View {
             stateManager.textures.append(texture)
         }
     }
-    
+        
+
 }
