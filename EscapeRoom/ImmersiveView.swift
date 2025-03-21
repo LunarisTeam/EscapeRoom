@@ -117,8 +117,10 @@ struct ImmersiveView: View {
                     // Flip 180° around Y so the cover faces the palm (instead of the pages)
                     bookEntity.transform.rotation *= simd_quatf(angle: .pi, axis: [0, 1, 0])
                     
+                    bookEntity.transform.rotation *= simd_quatf(angle: -.pi / 2, axis: [0, 0, 1])
+                    
                     // Move it slightly forward so it's not inside the palm
-                    bookEntity.position = SIMD3(0, 0, -0.1)// Move forward in the local Z direction
+                    bookEntity.position = SIMD3(0, 0.015, 0)// Move forward in the local Z direction
                     
                     // Add only to the right hand (adjust if necessary)
                     stateManager.handAnchor!.addChild(bookEntity)
