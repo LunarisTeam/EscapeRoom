@@ -55,8 +55,6 @@ struct ImmersiveView: View {
             //Add the Gauntlet scene that was set up in Reality Composer Pro.
             if let bookEntity = try? await Entity(named: "booknoteFinal", in: realityKitContentBundle) {
                 stateManager.bookModel = bookEntity
-                
-                
             }
             
             if let entity = stateManager.sceneModel?.findEntity(named: "Mug_Cylinder_013_Cylinder_007_001"){
@@ -101,50 +99,33 @@ struct ImmersiveView: View {
                         )
                     )))
                 }
-//                // Set rotation to face the user like a normal book
-//                bookEntity.transform.rotation *= simd_quatf(angle: .pi, axis: [1, 0, 0])
-//                bookEntity.transform.rotation *= simd_quatf(angle: 0, axis: [0, 1, 0])
-//                bookEntity.transform.rotation *= simd_quatf(angle: -.pi, axis: [0, 0, 1])
-//
-                // Reset rotation first (identity quaternion)
-                // Reset rotation first (identity quaternion)
+                
                 if let bookEntity = stateManager.bookModel {
-                    bookEntity.transform.rotation = simd_quatf(angle: 0, axis: [1, 0, 0])
                     
-                    // Rotate 90° around X so the book stands upright relative to the palm
-                    bookEntity.transform.rotation *= simd_quatf(angle: .pi / 2, axis: [1, 0, 0])
                     
-                    // Flip 180° around Y so the cover faces the palm (instead of the pages)
-                    bookEntity.transform.rotation *= simd_quatf(angle: .pi, axis: [0, 1, 0])
+                    bookConfig(bookEntity)
                     
-                    bookEntity.transform.rotation *= simd_quatf(angle: -.pi / 2, axis: [0, 0, 1])
+                    bookEntity.position = SIMD3(0, 0.015, 0)
                     
-                    // Move it slightly forward so it's not inside the palm
-                    bookEntity.position = SIMD3(0, 0.015, 0)// Move forward in the local Z direction
-                    
-                    // Add only to the right hand (adjust if necessary)
+                    stateManager.bookModel = bookEntity
                     stateManager.handAnchor!.addChild(bookEntity)
                     
-                    
-                    // Add to scene
                     content.add(stateManager.handAnchor!)
                     
-                    let xAxis = ModelEntity(mesh: .generateBox(size: [0.15, 0.002, 0.002]), materials: [SimpleMaterial(color: .red, isMetallic: false)])
-                    xAxis.position = SIMD3(0.15, 0, 0) // Extend along X
-                    bookEntity.addChild(xAxis)
-                    
-                    // Create Y-axis (Green)
-                    let yAxis = ModelEntity(mesh: .generateBox(size: [0.002, 0.15, 0.002]), materials: [SimpleMaterial(color: .green, isMetallic: false)])
-                    yAxis.position = SIMD3(0, 0.15, 0) // Extend along Y
-                    bookEntity.addChild(yAxis)
-                    
-                    // Create Z-axis (Blue)
-                    let zAxis = ModelEntity(mesh: .generateBox(size: [0.002, 0.002, 0.15]), materials: [SimpleMaterial(color: .blue, isMetallic: false)])
-                    zAxis.position = SIMD3(0, 0, 0.15) // Extend along Z
-                    bookEntity.addChild(zAxis)
+                    //MARK: Uncomment for debugging purposes
+//                    let xAxis = ModelEntity(mesh: .generateBox(size: [0.15, 0.002, 0.002]), materials: [SimpleMaterial(color: .red, isMetallic: false)])
+//                    xAxis.position = SIMD3(0.15, 0, 0) //line along X
+//                    bookEntity.addChild(xAxis)
+//                    
+//                    let yAxis = ModelEntity(mesh: .generateBox(size: [0.002, 0.15, 0.002]), materials: [SimpleMaterial(color: .green, isMetallic: false)])
+//                    yAxis.position = SIMD3(0, 0.15, 0) //line along Y
+//                    bookEntity.addChild(yAxis)
+//                    
+//                    let zAxis = ModelEntity(mesh: .generateBox(size: [0.002, 0.002, 0.15]), materials: [SimpleMaterial(color: .blue, isMetallic: false)])
+//                    zAxis.position = SIMD3(0, 0, 0.15) //line along Z
+//                    bookEntity.addChild(zAxis)
                 }
             }
-            
             
         }update: {content in
             
@@ -211,9 +192,6 @@ struct ImmersiveView: View {
                 stateManager.changeScreen = false
                 stateManager.counter += 1
             }
-            
-            
-            
             
         }
         .installGestures()
@@ -286,5 +264,12 @@ struct ImmersiveView: View {
         }
     }
         
+    private func bookConfig(_ bookEntity: Entity) {
+        //rotation is tricky, handle this with extra care
+        bookEntity.transform.rotation = simd_quatf(angle: 0, axis: [1, 0, 0])
+        bookEntity.transform.rotation *= simd_quatf(angle: .pi / 2, axis: [1, 0, 0])
+        bookEntity.transform.rotation *= simd_quatf(angle: .pi, axis: [0, 1, 0])
+        bookEntity.transform.rotation *= simd_quatf(angle: -.pi / 2, axis: [0, 0, 1])
+    }
 
 }
